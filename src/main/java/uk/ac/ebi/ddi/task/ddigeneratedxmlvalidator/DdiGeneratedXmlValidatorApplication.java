@@ -4,10 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import uk.ac.ebi.ddi.ddifileservice.DdiFileServiceApplication;
 import uk.ac.ebi.ddi.ddifileservice.services.IFileSystem;
 import uk.ac.ebi.ddi.ddifileservice.type.ConvertibleOutputStream;
-import uk.ac.ebi.ddi.task.ddigeneratedxmlvalidator.configuration.TaskConfiguration;
 import uk.ac.ebi.ddi.task.ddigeneratedxmlvalidator.configuration.XmlValidatorTaskProperties;
 import uk.ac.ebi.ddi.xml.validator.parser.OmicsXMLFile;
 import uk.ac.ebi.ddi.xml.validator.utils.Tuple;
@@ -18,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@SpringBootApplication(scanBasePackageClasses = {DdiFileServiceApplication.class, TaskConfiguration.class})
+@SpringBootApplication
 public class DdiGeneratedXmlValidatorApplication implements CommandLineRunner {
 
 	@Autowired
