@@ -21,8 +21,11 @@ import java.io.InputStream;
 @ContextConfiguration(classes = DdiGeneratedXmlValidatorApplication.class,
 		initializers = ConfigFileApplicationContextInitializer.class)
 @TestPropertySource(properties = {
-		"s3.env_auth=true",
-		"validator.directory=/testing/validator",
+        "s3.env_auth=true",
+        "s3.endpoint_url=https://s3.embassy.ebi.ac.uk",
+        "s3.bucket_name=caas-omicsdi",
+        "s3.region=eu-west-2",
+		"validator.directory=testing/validator",
 		"validator.report_name=report_result.csv"
 })
 public class ITS3GeneratedXmlValidatorTest {
@@ -55,7 +58,7 @@ public class ITS3GeneratedXmlValidatorTest {
 	}
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         String resultFilePath = taskProperties.getDirectory() + "/" + taskProperties.getReportName();
         fileSystem.deleteFile(resultFilePath);
     }
