@@ -24,7 +24,7 @@ import java.io.InputStream;
 @TestPropertySource(properties = {
         "file.provider=local",
         "validator.directory=/tmp/validator",
-        "validator.report_name=report_result.csv"
+        "validator.report_file_path=/tmp/validator/report_result.csv"
 })
 public class ITLocalGeneratedXmlValidatorTest {
 
@@ -49,10 +49,8 @@ public class ITLocalGeneratedXmlValidatorTest {
     @Test
     public void contextLoads() throws Exception {
         application.run();
-
-        String resultFilePath = taskProperties.getDirectory() + "/" + taskProperties.getReportName();
-        Assert.assertTrue(fileSystem.isFile(resultFilePath));
-        try (InputStream stream = fileSystem.getInputStream(resultFilePath)) {
+        Assert.assertTrue(fileSystem.isFile(taskProperties.getReportFilePath()));
+        try (InputStream stream = fileSystem.getInputStream(taskProperties.getReportFilePath())) {
             String report = IOUtils.toString(stream);
             Assert.assertTrue(report.contains("|Error|"));
         }
