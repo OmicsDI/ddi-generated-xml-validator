@@ -7,7 +7,7 @@ public class XmlValidatorTaskProperties {
 
     private String directory;
 
-    private String reportName;
+    private String reportFilePath;
 
     public String getDirectory() {
         return directory;
@@ -17,19 +17,19 @@ public class XmlValidatorTaskProperties {
         this.directory = directory;
     }
 
-    public String getReportName() {
-        return reportName;
+    public String getReportFilePath() {
+        return reportFilePath;
     }
 
-    public void setReportName(String reportName) {
-        this.reportName = reportName;
+    public void setReportFilePath(String reportFilePath) {
+        this.reportFilePath = reportFilePath;
     }
 
     @Override
     public String toString() {
         return "XmlValidatorTaskProperties{" +
                 "directory='" + directory + '\'' +
-                ", reportName='" + reportName + '\'' +
+                ", reportFilePath='" + reportFilePath + '\'' +
                 '}';
     }
 }

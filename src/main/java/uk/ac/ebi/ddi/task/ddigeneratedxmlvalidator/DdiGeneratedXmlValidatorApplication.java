@@ -52,8 +52,7 @@ public class DdiGeneratedXmlValidatorApplication implements CommandLineRunner {
 				}
 			}
 			printStream.close();
-			String reportFile = taskProperties.getDirectory() + "/" + taskProperties.getReportName();
-			fileSystem.saveFile(outputStream, reportFile);
+			fileSystem.saveFile(outputStream, taskProperties.getReportFilePath());
 		}
 	}
 }
